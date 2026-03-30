@@ -1,1 +1,204 @@
-<h1>Merhaba Dünya! Bu benim GitHub sitem.</h1>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akıllı Baston Proje Sunumu</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --danger: #e74c3c;
+            --success: #2ecc71;
+            --warning: #f1c40f;
+            --text: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1a1a2e;
+            color: var(--text);
+            overflow: hidden; /* Kaydırma çubuğunu gizle */
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none; /* Varsayılan olarak gizli */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 { font-size: 4rem; color: #fff; margin-bottom: 10px; }
+        h2 { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
+        p { font-size: 1.3rem; max-width: 800px; line-height: 1.6; }
+
+        /* Stil Grupları */
+        .card { background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); margin: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; width: 80%; }
+        
+        /* Navigasyon */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        button:hover { background: #2980b9; transform: translateY(-2px); }
+        button:disabled { background: #555; cursor: not-allowed; }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: var(--success);
+            transition: 0.3s;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress" id="progressBar" style="width: 16.6%;"></div>
+
+    <div class="presentation-container">
+        <div class="slide active">
+            <h1>AKILLI BASTON</h1>
+            <p style="color: var(--accent); font-size: 1.8rem;">Erişilebilir Bir Gelecek İçin İnovasyon</p>
+            <div class="card">🚀 Teknoloji ve Sosyal Fayda Bir Arada</div>
+        </div>
+
+        <div class="slide">
+            <h2 style="color: var(--danger);">MEVCUT SORUN</h2>
+            <p>Görme engelli bireyler, geleneksel bastonlarla sadece yer seviyesindeki engelleri fark edebilirler. Baş ve göğüs hizasındaki engeller ciddi yaralanma riskleri oluşturur.</p>
+            <div class="card">⚠️ Her yıl binlerce kişi fark edilemeyen engeller yüzünden yaralanıyor.</div>
+        </div>
+
+        <div class="slide">
+            <h2 style="color: var(--success);">ÇÖZÜMÜMÜZ</h2>
+            <p>1 metre mesafedeki tüm engelleri algılayan akıllı bir takip sistemi geliştiriyoruz.</p>
+            <div class="grid">
+                <div class="card">📏 1 Metre Algılama</div>
+                <div class="card">⚡ Anlık Uyarı</div>
+                <div class="card">🛡️ Güvenli Hareket</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>NASIL ÇALIŞIR?</h2>
+            <div style="text-align: left; max-width: 600px;">
+                <p>1️⃣ <b>Ultrasonik Sensör:</b> Ses dalgaları ile çevreyi tarar.</p>
+                <p>2️⃣ <b>Mesafe Ölçümü:</b> Engel 1 metreye girdiğinde sinyal gönderilir.</p>
+                <p>3️⃣ <b>Buzzer:</b> Kullanıcıya titreşim/ses ile anında geri bildirim verir.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>PROJE EKİBİ</h2>
+            <p><b>Kaptanlar:</b> Ali Hazar Zorlu, Çağan Mutlu</p>
+            <div class="grid" style="font-size: 0.9rem;">
+                <div class="card">Rüzgar Yakar</div>
+                <div class="card">Çağan Utku Çetinkaya</div>
+                <div class="card">Tuna Civelek</div>
+                <div class="card">Tuna Demirhan</div>
+                <div class="card">Umut Güneş</div>
+                <div class="card">Furkan Çil</div>
+                <div class="card">Demir Özgiray</div>
+                <div class="card">Mehmet Göktaş</div>
+                <div class="card">Eyşan Gürbüz</div>
+                <div class="card">Beren Bıyıklı</div>
+                <div class="card">Mihrimah Kara</div>
+                <div class="card">Zeynep Sena Göktaş</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>GELECEK PLANLARI</h2>
+            <div class="card" style="border: 2px solid var(--accent);">
+                <p style="font-size: 1.5rem; font-style: italic;">"Bu projeyi gerçek hayata taşıyarak görme engelli bireylerin bağımsızlığını artırmayı hedefliyoruz."</p>
+            </div>
+            <p>🌟 Gerçek kullanıcı deneyimi ve seri üretim vizyonu.</p>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn" onclick="changeSlide(-1)" disabled>Geri</button>
+        <button id="nextBtn" onclick="changeSlide(1)">İleri</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progressBar');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide += direction;
+
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+
+            slides[currentSlide].classList.add('active');
+            
+            // Kontrolleri güncelle
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+            
+            // Progress bar güncelle
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = progress + '%';
+        }
+
+        // Klavye desteği
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+    </script>
+</body>
+</html>
