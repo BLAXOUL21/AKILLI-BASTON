@@ -3,430 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akıllı Baston Proje Sunumu (Görselleştirilmiş)</title>
+    <title>Akıllı Baston - Teknik Detaylar</title>
     <style>
         :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
-            --accent: #3498db;
-            --danger: #e74c3c;
-            --success: #2ecc71;
-            --warning: #f1c40f;
-            --text: #ecf0f1;
-            --text-secondary: #bdc3c7;
+            --dark-blue: #1a2a6c;
+            --tech-blue: #00d2ff;
+            --white: #ffffff;
+            --gray: #f8f9fa;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--dark-blue), #b21f1f, #fdbb2d);
             margin: 0;
-            padding: 0;
-            background: var(--primary);
-            color: var(--text);
-            overflow: hidden; /* Kaydırma çubuğunu gizle */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        .presentation-container {
-            width: 100vw;
-            height: 100vh;
+        .presentation-card {
+            width: 900px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            display: flex;
+            overflow: hidden;
+            height: 550px;
+        }
+
+        .image-side {
+            flex: 1.2;
+            background-image: url('https://imgrosetta.webtekno.com/file/569961/1200x675.jpg');
+            background-size: cover;
+            background-position: center;
             position: relative;
         }
 
-        .slide {
+        .image-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
             width: 100%;
-            height: 100%;
-            display: none; /* Varsayılan olarak gizli */
+            padding: 15px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .content-side {
+            flex: 1;
+            padding: 40px;
+            display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            padding: 60px;
-            box-sizing: border-box;
-            text-align: center;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            animation: fadeIn 0.5s ease-in-out;
         }
 
-        .slide.active {
-            display: flex;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Başlıklar */
         h1 {
-            font-size: 4.5rem;
-            color: #fff;
+            color: var(--dark-blue);
+            font-size: 2.2em;
             margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 5px 15px rgba(52, 152, 219, 0.5);
+            border-left: 5px solid var(--tech-blue);
+            padding-left: 15px;
         }
 
         h2 {
-            font-size: 3rem;
-            color: var(--accent);
+            color: #666;
+            font-size: 1.2em;
             margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-        }
-
-        /* Metinler */
-        p {
-            font-size: 1.4rem;
-            max-width: 900px;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            color: var(--text-secondary);
-        }
-
-        strong { color: #fff; }
-
-        /* Stil Grupları ve Görseller */
-        .card {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin: 15px;
-            transition: transform 0.3s;
-        }
-
-        .card:hover { transform: translateY(-5px); }
-
-        .big-icon {
-            font-size: 8rem;
             margin-bottom: 20px;
-            display: block;
+            font-size: 1.1em;
+            color: #444;
         }
 
-        .icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            width: 90%;
-            max-width: 1200px;
-        }
-
-        /* Liste ve Akış Stilleri */
-        .flow-container {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .step-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            flex: 1;
-            text-align: left;
-            position: relative;
-        }
-
-        .step-num {
-            background: var(--accent);
-            color: white;
-            width: 40px;
-            height: 40px;
+        .feature-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--tech-blue);
             border-radius: 50%;
+            margin-right: 15px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
+            color: white;
             font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
         }
 
-        .arrow {
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Takım Grid */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            width: 90%;
-            max-width: 1100px;
-            margin-top: 20px;
-        }
-
-        .team-card {
-            background: rgba(255,255,255,0.04);
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            color: var(--text-secondary);
-        }
-
-        .captain-card {
-            grid-column: span 2;
-            background: rgba(52, 152, 219, 0.1);
-            border: 1px solid var(--accent);
-            font-weight: bold;
-            color: #fff;
-            font-size: 1.1rem;
-        }
-
-        /* Gelecek Slaytı */
-        .vision-box {
-            background: rgba(46, 204, 113, 0.05);
-            border: 2px solid var(--success);
-            padding: 40px;
-            border-radius: 25px;
-            margin-top: 20px;
-        }
-
-        /* Navigasyon Butonları */
-        .controls {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 100;
-        }
-
-        button {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 12px 30px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        button:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-
-        button:disabled {
-            background: #333;
-            color: #777;
-            cursor: not-allowed;
-            border: none;
-        }
-
-        /* İlerleme Çubuğu */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 5px;
-            background: var(--accent);
-            box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
-            transition: 0.3s;
-            z-index: 100;
+        .footer-info {
+            margin-top: auto;
+            font-size: 0.8em;
+            color: #999;
+            text-align: right;
         }
     </style>
 </head>
 <body>
 
-    <div class="progress-bar" id="progressBar" style="width: 14.3%;"></div>
-
-    <div class="presentation-container">
-        
-        <div class="slide active">
-            <span class="big-icon">🚀</span>
-            <h1>AKILLI BASTON</h1>
-            <p style="color: var(--accent); font-size: 2rem; font-weight: 300;">Erişilebilir Bir Gelecek İçin İnovasyon</p>
+    <div class="presentation-card">
+        <div class="image-side">
+            <div class="image-overlay">Ultrasonik Sensör ve Engel Algılama Sistemi</div>
         </div>
 
-        <div class="slide">
-            <h2 style="color: var(--danger);"><span class="icon">⚠️</span> MEVCUT SORUN</h2>
-            <div class="flow-container">
-                <div class="step-card" style="border-color: var(--danger);">
-                    <div class="big-icon" style="font-size: 5rem; color: var(--danger);">🛑</div>
-                    <h3 style="color: #fff;">Sınırlı Algılama</h3>
-                    <p style="font-size: 1.1rem;">Geleneksel bastonlar sadece yer seviyesindeki engelleri fark edebilir.</p>
-                </div>
-                <div class="arrow">➡️</div>
-                <div class="step-card" style="border-color: var(--danger);">
-                    <div class="big-icon" style="font-size: 5rem; color: var(--danger);">🤕</div>
-                    <h3 style="color: #fff;">Yaralanma Riski</h3>
-                    <p style="font-size: 1.1rem;">Baş, göğüs hizasındaki engeller veya asılı nesneler ciddi kazalara yol açar.</p>
-                </div>
+        <div class="content-side">
+            <h1>Teknik Donanım</h1>
+            <h2>Akıllı Baston Çalışma Prensibi</h2>
+
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <div class="feature-icon">1</div>
+                    Mesafe ölçümü yapan sensörler
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">2</div>
+                    Hızlı veri işleme (Arduino)
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">3</div>
+                    Anlık sesli/titreşimli geri bildirim
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">4</div>
+                    Uzun ömürlü batarya desteği
+                </li>
+            </ul>
+
+            <div class="footer-info">
+                Proje Sunumu | Bölüm 3: Donanım Bileşenleri
             </div>
         </div>
-
-        <div class="slide">
-            <h2 style="color: var(--success);"><span class="icon">💡</span> BİZİM ÇÖZÜMÜMÜZ</h2>
-            <p>Engelleri önceden fark eden, <strong>maliyet etkin</strong> ve yüksek teknolojili bir yardımcı cihaz.</p>
-            <div class="grid">
-                <div class="card">
-                    <div class="big-icon" style="font-size: 4rem;">📐</div>
-                    <h3>Genişletilmiş Algılama</h3>
-                    <p style="font-size: 1.1rem;">Baş ve göğüs seviyesindeki engelleri fark eder.</p>
-                </div>
-                <div class="card" style="border-color: var(--success);">
-                    <div class="big-icon" style="font-size: 4rem;">⚡</div>
-                    <h3>Anlık Uyarı</h3>
-                    <p style="font-size: 1.1rem;">Engel algılandığında kullanıcısına anında geri bildirim verir.</p>
-                </div>
-                <div class="card">
-                    <div class="big-icon" style="font-size: 4rem;">🛡️</div>
-                    <h3>Güvenli Hareket</h3>
-                    <p style="font-size: 1.1rem;">Kullanıcısının bağımsız hareket etme özgürlüğünü artırır.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <h2><span class="icon">⚙️</span> TEKNİK DONANIM</h2>
-            <p>Küçük, güçlü ve güvenilir parçalarla oluşturulan teknolojik altyapı.</p>
-            <div class="grid" style="grid-template-columns: repeat(4, 1fr);">
-                <div class="card">
-                    <div class="big-icon" style="font-size: 3rem;">🧠</div>
-                    <h3>Arduino Nano</h3>
-                    <p style="font-size: 0.95rem;">Sistemin beyni, verileri işler.</p>
-                </div>
-                <div class="card">
-                    <div class="big-icon" style="font-size: 3rem;">📡</div>
-                    <h3>3x Ultrasonik</h3>
-                    <p style="font-size: 0.95rem;">Ön, Sağ, Sol tarama yapar.</p>
-                </div>
-                <div class="card">
-                    <div class="big-icon" style="font-size: 3rem;">🔊</div>
-                    <h3>Buzzer</h3>
-                    <p style="font-size: 0.95rem;">Sesli/Titreşimli uyarı verir.</p>
-                </div>
-                <div class="card">
-                    <div class="big-icon" style="font-size: 3rem;">🔌</div>
-                    <h3>Kablolar</h3>
-                    <p style="font-size: 0.95rem;">Erkek-Dişi Jumperlar.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <h2><span class="icon">🔄</span> NASIL ÇALIŞIR?</h2>
-            <div class="flow-container">
-                <div class="step-card">
-                    <div class="step-num">1</div>
-                    <h3>Algılama</h3>
-                    <p style="font-size: 1rem;">Ultrasonik sensörler çevreyi tarar.</p>
-                </div>
-                <div class="arrow">➡️</div>
-                <div class="step-card" style="border-color: var(--accent);">
-                    <div class="step-num">2</div>
-                    <h3>Karar</h3>
-                    <p style="font-size: 1rem;">Mesafe <strong>1 Metre</strong> ise sinyal gönderilir.</p>
-                </div>
-                <div class="arrow">➡️</div>
-                <div class="step-card" style="border-color: var(--danger);">
-                    <div class="step-num">3</div>
-                    <h3>Uyarı</h3>
-                    <p style="font-size: 1rem;">Buzzer aktifleşerek kullanıcıyı uyarır.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <h2><span class="icon">👥</span> PROJE EKİBİ</h2>
-            <div class="team-grid">
-                <div class="team-card captain-card">Kaptan: Ali Hazar Zorlu</div>
-                <div class="team-card captain-card">Kaptan: Çağan Mutlu</div>
-                <div class="team-card">Rüzgar Yakar</div>
-                <div class="team-card">Çağan Utku Çetinkaya</div>
-                <div class="team-card">Tuna Civelek</div>
-                <div class="team-card">Tuna Demirhan</div>
-                <div class="team-card">Umut Güneş</div>
-                <div class="team-card">Furkan Çil</div>
-                <div class="team-card">Demir Özgiray</div>
-                <div class="team-card">Mehmet Göktaş</div>
-                <div class="team-card">Eyşan Gürbüz</div>
-                <div class="team-card">Beren Bıyıklı</div>
-                <div class="team-card">Mihrimah Kara</div>
-                <div class="team-card">Zeynep Sena Göktaş</div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <h2 style="color: var(--success);"><span class="icon">🌟</span> GELECEK VİZYONUMUZ</h2>
-            <div class="vision-box">
-                <p style="font-size: 2rem; font-style: italic; color: #fff; margin: 0; line-height: 1.5;">
-                    "En büyük hedefimiz, bu projeyi gerçekten ihtiyacı olan görme engelli insanlara sunarak onların hayatına dokunmaktır."
-                </p>
-            </div>
-            <p style="font-size: 1.1rem; margin-top: 30px;">Dinlediğiniz için teşekkür ederiz.</p>
-        </div>
-
     </div>
 
-    <div class="controls">
-        <button id="prevBtn" onclick="changeSlide(-1)" disabled>
-            <span class="btn-icon">⬅️</span> Geri
-        </button>
-        <button id="nextBtn" onclick="changeSlide(1)">
-            İleri <span class="btn-icon">➡️</span>
-        </button>
-    </div>
-
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const progressBar = document.getElementById('progressBar');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-
-        function changeSlide(direction) {
-            // Mevcut slaydı gizle
-            slides[currentSlide].classList.remove('active');
-            
-            // Yeni slayt numarasını hesapla
-            currentSlide += direction;
-
-            // Sınırları kontrol et
-            if (currentSlide < 0) currentSlide = 0;
-            if (currentSlide >= slides.length) currentSlide = slides.length - 1;
-
-            // Yeni slaydı göster
-            slides[currentSlide].classList.add('active');
-            
-            // Butonların durumunu güncelle
-            prevBtn.disabled = (currentSlide === 0);
-            nextBtn.disabled = (currentSlide === slides.length - 1);
-            
-            // İlerleme çubuğunu güncelle
-            const progressPercentage = ((currentSlide + 1) / slides.length) * 100;
-            progressBar.style.width = progressPercentage + '%';
-        }
-
-        // Klavye ile kontrol desteği
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
-                e.preventDefault(); // Boşluk tuşu ile aşağı kaymayı engelle
-                changeSlide(1);
-            }
-            if (e.key === 'ArrowLeft') {
-                changeSlide(-1);
-            }
-        });
-    </script>
 </body>
 </html>
