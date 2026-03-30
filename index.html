@@ -3,42 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akıllı Baston İnteraktif Sunum</title>
+    <title>Akıllı Baston - Proje Sunumu</title>
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #3498db;
-            --bg: #f5f6fa;
+            --primary-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            --accent-color: #00d2ff;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #2d3436;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             margin: 0;
-            background-color: var(--bg);
+            background: var(--primary-gradient);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: var(--text-main);
             overflow: hidden;
         }
 
-        /* Slayt Kapsayıcı */
         .presentation-wrapper {
             position: relative;
-            width: 900px;
-            height: 550px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            width: 950px;
+            height: 600px;
+            background: var(--card-bg);
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         .slide {
-            display: none; /* Varsayılan olarak gizli */
+            display: none;
             height: 100%;
-            padding: 40px;
+            padding: 50px;
             box-sizing: border-box;
-            animation: fadeIn 0.5s ease;
+            animation: slideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .slide.active {
@@ -49,53 +53,72 @@
             text-align: center;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        h1 { color: var(--primary); margin-bottom: 10px; }
-        p { color: #666; font-size: 1.2em; max-width: 700px; }
+        h1 { font-size: 2.8em; margin: 0 0 15px 0; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { font-size: 1.3em; line-height: 1.5; color: #555; max-width: 800px; }
 
-        /* Görsel Boyutlandırma */
+        /* Görsel Tasarımı */
         .slide-img {
-            width: 450px; /* Görselleri küçülttüm */
-            height: 280px;
-            object-fit: cover;
-            border-radius: 15px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 4px solid white;
+            height: 250px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 5px solid white;
+            transition: transform 0.3s ease;
         }
+        .slide-img:hover { transform: scale(1.02); }
 
-        /* Kontrol Butonları */
+        /* Takım Üyeleri Bölümü */
+        .team-container {
+            display: flex;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .team-member {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 180px;
+            border-top: 4px solid var(--accent-color);
+        }
+        .member-name { font-weight: bold; color: var(--primary-gradient); display: block; margin-bottom: 5px; }
+        .member-role { font-size: 0.9em; color: #888; }
+
+        /* Navigasyon */
         .nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(44, 62, 80, 0.7);
-            color: white;
+            background: white;
+            color: #1e3c72;
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 24px;
             transition: 0.3s;
-            z-index: 10;
+            z-index: 100;
         }
+        .nav-btn:hover { background: var(--accent-color); color: white; transform: translateY(-50%) scale(1.1); }
+        .prev { left: 25px; }
+        .next { right: 25px; }
 
-        .nav-btn:hover { background: var(--accent); }
-        .prev { left: 20px; }
-        .next { right: 20px; }
-
-        .progress {
+        .progress-bar {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #999;
-            font-size: 0.9em;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background: var(--accent-color);
+            transition: width 0.4s ease;
         }
     </style>
 </head>
@@ -106,50 +129,73 @@
     <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
 
     <div class="slide active">
-        <h1>Akıllı Baston Projesi</h1>
+        <h1>AKILLI BASTON</h1>
         <img src="https://cdnuploads.aa.com.tr/uploads/Contents/2023/06/23/thumbs_b_c_252cbef2088a7cf68c471a4a6d5e7c0c.jpg?v=120814" class="slide-img">
-        <p>Görme engelli bireyler için teknolojik bir rehber.</p>
-        <div class="progress">1 / 3</div>
+        <p>Geleceğin teknolojisiyle engelleri ortadan kaldırıyoruz.</p>
     </div>
 
     <div class="slide">
-        <h1>Erişilebilirlik</h1>
+        <h1>Bağımsız Hareket</h1>
         <img src="https://cdnuploads.aa.com.tr/uploads/PhotoGallery/2023/06/23/thumbs_b2_ead03aacd3d6fc15eca2041c83ad8efe.jpg" class="slide-img">
-        <p>Günlük hayatta güvenli ve bağımsız hareket imkanı sağlar.</p>
-        <div class="progress">2 / 3</div>
+        <p>Sensörlerimiz sayesinde kullanıcılar çevrelerini daha iyi algılar.</p>
     </div>
 
     <div class="slide">
-        <h1>Teknoloji ve Sensörler</h1>
+        <h1>Teknik Altyapı</h1>
         <img src="https://imgrosetta.webtekno.com/file/569961/1200x675.jpg" class="slide-img">
-        <p>Ultrasonik sensörler ile engelleri milisaniyeler içinde algılar.</p>
-        <div class="progress">3 / 3</div>
+        <p>Arduino Nano ve Ultrasonik sensörlerin mükemmel uyumu.</p>
     </div>
+
+    <div class="slide">
+        <h1>Takımımız</h1>
+        <div class="team-container">
+            <div class="team-member">
+                <span class="member-name">Senin Adın</span>
+                <span class="member-role">Proje Lideri / Yazılım</span>
+            </div>
+            <div class="team-member">
+                <span class="member-name">Arkadaşın 1</span>
+                <span class="member-role">Donanım Tasarımı</span>
+            </div>
+            <div class="team-member">
+                <span class="member-name">Arkadaşın 2</span>
+                <span class="member-role">Sunum & Tasarım</span>
+            </div>
+        </div>
+        <p style="margin-top: 40px; font-style: italic;">"Birlikte daha erişilebilir bir dünya için çalışıyoruz."</p>
+    </div>
+
+    <div class="progress-bar" id="progress"></div>
 </div>
 
 <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
+    const progressBar = document.getElementById('progress');
 
-    function showSlide(index) {
+    function updateUI() {
         slides.forEach(slide => slide.classList.remove('active'));
-        
-        if (index >= slides.length) currentSlide = 0;
-        else if (index < 0) currentSlide = slides.length - 1;
-        else currentSlide = index;
-
         slides[currentSlide].classList.add('active');
+        
+        // İlerleme çubuğunu güncelle
+        const progressPercent = ((currentSlide + 1) / slides.length) * 100;
+        progressBar.style.width = progressPercent + "%";
     }
 
     function changeSlide(n) {
-        showSlide(currentSlide + n);
+        currentSlide += n;
+        if (currentSlide >= slides.length) currentSlide = 0;
+        if (currentSlide < 0) currentSlide = slides.length - 1;
+        updateUI();
     }
 
-    // Klavye Ok Tuşları Kontrolü
     document.addEventListener('keydown', (e) => {
         if (e.key === "ArrowLeft") changeSlide(-1);
         else if (e.key === "ArrowRight") changeSlide(1);
     });
+
+    // İlk yüklemede barı ayarla
+    updateUI();
 </script>
 
 </body>
