@@ -29,7 +29,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 60px;
+            padding: 40px;
             text-align: center;
             position: relative;
         }
@@ -38,34 +38,34 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
 
-        h1 { color: #1e3c72; font-size: 3.8em; margin: 0 0 20px 0; border-bottom: 4px solid #3498db; padding-bottom: 10px; }
-        h2 { color: #2c3e50; font-size: 2.5em; margin-bottom: 20px; }
-        p { font-size: 1.6em; line-height: 1.5; color: #444; max-width: 1000px; }
+        h1 { color: #1e3c72; font-size: 3.5em; margin: 0 0 15px 0; border-bottom: 4px solid #3498db; padding-bottom: 5px; }
+        h2 { color: #2c3e50; font-size: 2.2em; margin-bottom: 15px; }
+        p { font-size: 1.5em; line-height: 1.4; color: #444; max-width: 1000px; }
 
         img {
-            max-width: 35%; 
+            max-width: 32%; 
             height: auto;
             border-radius: 20px;
-            margin: 20px 0;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            margin: 15px 0;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
         }
 
-        /* Takım Düzeni - 14 Kişi İçin Optimize Edildi */
+        /* 14 Kişilik Gelişmiş Takım Izgarası */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr); 
-            gap: 12px;
-            width: 95%;
-            max-width: 1400px;
-            margin-top: 20px;
+            gap: 10px;
+            width: 98%;
+            max-width: 1450px;
+            margin-top: 15px;
         }
 
         .member {
             background: #f0f4f8;
-            padding: 12px;
-            border-radius: 12px;
+            padding: 10px;
+            border-radius: 10px;
             font-size: 0.85em;
-            border-left: 5px solid #3498db;
+            border-left: 4px solid #3498db;
             text-align: left;
             transition: transform 0.2s;
         }
@@ -75,12 +75,12 @@
 
         ul {
             text-align: left;
-            font-size: 1.4em;
+            font-size: 1.3em;
             color: #555;
             display: inline-block;
         }
 
-        li { margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
 
         .progress-bar {
             position: absolute;
@@ -104,22 +104,22 @@
 
     <div class="slide-container">
         <h2>Neden Akıllı Baston?</h2>
-        <div style="display: flex; gap: 40px; align-items: center;">
+        <div style="display: flex; gap: 30px; align-items: center;">
             <ul style="max-width: 500px;">
-                <li><b>Geleneksel Bastonlar:</b> Bel altı engelleri fark eder ancak kafa hizasındaki tehlikeleri kaçırır.</li>
-                <li><b>Akıllı Çözüm:</b> Ultrasonik dalgalar sayesinde her yöndeki engeli algılayan erken uyarı sistemi.</li>
+                <li><b>Geleneksel Bastonlar:</b> Sadece yer seviyesindeki engelleri fark edebilir.</li>
+                <li><b>Akıllı Çözüm:</b> Üst seviyedeki engelleri ultrasonik sensörlerle fark eden erken uyarı sistemi.</li>
             </ul>
-            <img src="https://imgrosetta.webtekno.com/file/569961/1200x675.jpg" style="max-width: 30%;">
+            <img src="https://imgrosetta.webtekno.com/file/569961/1200x675.jpg" style="max-width: 28%;">
         </div>
     </div>
 
     <div class="slide-container">
-        <h2>Çalışma Prensibi</h2>
-        <p>Arduino kontrol ünitesi ile entegre çalışan yüksek hassasiyetli sensörler.</p>
+        <h2>Nasıl Çalışır?</h2>
+        <p>Projemiz elektronik donanım ve yazılımın mükemmel uyumuyla çalışır.</p>
         <ul>
-            <li><b>HC-SR04 Sensör:</b> Çevreyi sürekli tarar ve mesafeyi hesaplar.</li>
-            <li><b>Haptik & Sesli Uyarı:</b> Engele yaklaştıkça artan ses ve titreşim hızı.</li>
-            <li><b>Kompakt Tasarım:</b> Ergonomik yapı ve uzun pil ömrü.</li>
+            <li><b>Mesafe Algılama:</b> Ses dalgaları ile engelleri milimetrik hesaplama.</li>
+            <li><b>Kullanıcı Uyarısı:</b> Engele yaklaştıkça hızlanan sesli bildirimler.</li>
+            <li><b>Hafif Tasarım:</b> Ergonomik ve günlük kullanıma uygun yapı.</li>
         </ul>
     </div>
 
@@ -127,26 +127,26 @@
         <h2>Proje Ekibimiz</h2>
         <div class="team-grid">
             <div class="member leader"><b>Mert Keser</b><br>Proje Başkanı</div>
-            <div class="member"><b>Ali Hazar Zorlu</b><br>Proje Lideri</div>
-            <div class="member"><b>Çağan Mutlu</b><br>Proje Lideri</div>
-            <div class="member"><b>Rüzgar Yakar</b><br>Takım Üyesi</div>
-            <div class="member"><b>Çağan Utku Çetinkaya</b><br>Takım Üyesi</div>
-            <div class="member"><b>Furkan Çil</b><br>Takım Üyesi</div>
-            <div class="member"><b>Demir Özgiray</b><br>Takım Üyesi</div>
-            <div class="member"><b>Tuna Demirhan</b><br>Takım Üyesi</div>
-            <div class="member"><b>Tuna Civelek</b><br>Takım Üyesi</div>
-            <div class="member"><b>Mehmet Yiğit Göktaş</b><br>Takım Üyesi</div>
-            <div class="member"><b>Umut Yücel Güneş</b><br>Takım Üyesi</div>
+            <div class="member leader"><b>Ali Hazar Zorlu</b><br>Proje Lideri</div>
+            <div class="member leader"><b>Çağan Mutlu</b><br>Proje Lideri</div>
+            <div class="member"><b>Rüzgar Yakar</b><br>Sunum</div>
+            <div class="member"><b>Çağan Utku Çetinkaya</b><br>Elektronik</div>
+            <div class="member"><b>Furkan Çil</b><br>Logo Tasarımı</div>
+            <div class="member"><b>Demir Özgiray</b><br>Afiş Tasarımı</div>
+            <div class="member"><b>Tuna Demirhan</b><br>Elektronik</div>
+            <div class="member"><b>Tuna Civelek</b><br>Afiş Tasarımı</div>
+            <div class="member"><b>Mehmet Yiğit Göktaş</b><br>Kod Yazma</div>
+            <div class="member"><b>Umut Yücel Güneş</b><br>Kod Yazma</div>
             <div class="member"><b>Mihrimah Kara</b><br>Takım Üyesi</div>
-            <div class="member"><b>Zeynep Sena Göktaş</b><br>Takım Üyesi</div>
-            <div class="member"><b>Eyşan Gürbüz</b><br>Takım Üyesi</div>
+            <div class="member"><b>Zeynep Sena Göktaş</b><br>Sunum</div>
+            <div class="member"><b>Eyşan Gürbüz</b><br>Logo Tasarımı</div>
         </div>
     </div>
 
     <div class="slide-container" style="background-color: #1e3c72; color: white;">
-        <h1 style="color: white; border-bottom-color: #2ecc71;">Dinlediğiniz İçin Teşekkürler</h1>
-        <p style="color: #bdc3c7;">Sorularınız varsa cevaplamaktan mutluluk duyarız.</p>
-        <p style="font-size: 1em; margin-top: 50px;">Sunum 7 saniye içinde başa dönecektir.</p>
+        <h1 style="color: white; border-bottom-color: #2ecc71;">Teşekkür Ederiz</h1>
+        <p style="color: #bdc3c7;">İzlediğiniz için teşekkürler. Sorularınızı yanıtlamaktan mutluluk duyarız.</p>
+        <p style="font-size: 1em; margin-top: 40px;">Sunum 7 saniye içinde otomatik olarak başa dönecektir.</p>
     </div>
 
     <script>
@@ -158,12 +158,10 @@
         function startTimer() {
             bar.style.transition = 'none';
             bar.style.width = '0%';
-            
             setTimeout(() => {
                 bar.style.transition = 'width 10000ms linear';
                 bar.style.width = '100%';
             }, 50);
-
             timer = setTimeout(nextSlide, 10000);
         }
 
@@ -172,7 +170,6 @@
             slides[current].classList.remove('active');
             current = index;
             slides[current].classList.add('active');
-
             if (current === slides.length - 1) {
                 bar.style.width = '0%';
                 setTimeout(() => showSlide(0), 7000);
@@ -181,13 +178,8 @@
             }
         }
 
-        function nextSlide() {
-            showSlide((current + 1) % slides.length);
-        }
-
-        function prevSlide() {
-            showSlide((current - 1 + slides.length) % slides.length);
-        }
+        function nextSlide() { showSlide((current + 1) % slides.length); }
+        function prevSlide() { showSlide((current - 1 + slides.length) % slides.length); }
 
         document.addEventListener('keydown', (e) => {
             if (e.key === "ArrowRight") nextSlide();
